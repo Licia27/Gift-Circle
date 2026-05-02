@@ -42,9 +42,9 @@ function Landing() {
         {/* Right — Preview Cards */}
         <div className="flex flex-col gap-4">
           {[
-            { emoji: '🎂', title: "Thandi's 30th Birthday", sub: '6 people · R1 800 goal', pct: 72 },
-            { emoji: '🌿', title: "Kemi's Baby Shower", sub: '11 people · R3 200 goal', pct: 45 },
-            { emoji: '🎓', title: "Lebo's Graduation", sub: '4 people · R900 goal', pct: 100 },
+            { emoji: '🎂', title: "Nothando's 30th Birthday", sub: '6 people · R1 800 goal', pct: 72 },
+            { emoji: '🌿', title: "Kamogelo's Baby Shower", sub: '11 people · R3 200 goal', pct: 45 },
+            { emoji: '🎓', title: "Lebogang's Graduation", sub: '4 people · R900 goal', pct: 100 },
           ].map((card) => (
             <div key={card.title} className="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-sm border border-[#DDD3C6]">
               <div className="w-12 h-12 rounded-xl bg-[#EDE5D8] flex items-center justify-center text-2xl">
