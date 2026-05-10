@@ -5,7 +5,9 @@ import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import CreateCircle from './pages/CreateCircle'
-import CircleDetail from './pages/CircleDetails'
+import CircleDetail from './pages/CircleDetail'
+import JoinCircle from './pages/JoinCircle'
+import ProtectedRoute from './components/layout/ProtectedRoute'
 
 function App() {
   return (
@@ -15,9 +17,16 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/circle/new" element={<CreateCircle />} />
-          <Route path="/circle/:id" element={<CircleDetail />} />
+          <Route path="/join/:token" element={<JoinCircle />} />
+          <Route path="/dashboard" element={
+            <ProtectedRoute><Dashboard /></ProtectedRoute>
+          } />
+          <Route path="/circle/new" element={
+            <ProtectedRoute><CreateCircle /></ProtectedRoute>
+          } />
+          <Route path="/circle/:id" element={
+            <ProtectedRoute><CircleDetail /></ProtectedRoute>
+          } />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
