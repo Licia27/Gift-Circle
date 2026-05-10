@@ -15,19 +15,20 @@ function Dashboard() {
       navigate('/login')
       return
     }
+
+    const fetchCircles = async () => {
+      const { data, error } = await supabase
+        .from('circles')
+        .select('*')
+        .eq('created_by', user.id)
+        .order('created_at', { ascending: false })
+
+      if (!error) setCircles(data)
+      setLoading(false)
+    }
+
     fetchCircles()
-  }, [user])
-
-  const fetchCircles = async () => {
-    const { data, error } = await supabase
-      .from('circles')
-      .select('*')
-      .eq('created_by', user.id)
-      .order('created_at', { ascending: false })
-
-    if (!error) setCircles(data)
-    setLoading(false)
-  }
+  }, [user, navigate])
 
   const occasions = {
     Birthday: '🎂',

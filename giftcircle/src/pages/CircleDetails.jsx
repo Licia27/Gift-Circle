@@ -14,19 +14,18 @@ function CircleDetail() {
   const [adding, setAdding] = useState(false)
   const [copied, setCopied] = useState(false)
 
-  useEffect(() => {
-    fetchCircle()
-    fetchGifts()
-  }, [id])
-
   const fetchCircle = async () => {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from('circles')
       .select('*')
       .eq('id', id)
       .single()
+    if (error) {
+      console.error('Error fetching circle:', error)
+      setLoading(false)
+      return
+    }
     setCircle(data)
-    setLoading(false)
   }
 
   const fetchGifts = async () => {
@@ -36,6 +35,15 @@ function CircleDetail() {
       .eq('circle_id', id)
     setGifts(data || [])
   }
+
+  useEffect(() => {
+    const loadData = async () => {
+      await fetchCircle()
+      await fetchGifts()
+      setLoading(false)
+    }
+    loadData()
+  }, [id, user])
 
   const handleAddGift = async (e) => {
     e.preventDefault()
@@ -112,16 +120,13 @@ function CircleDetail() {
       {/* Body */}
       <div className="max-w-6xl mx-auto px-8 py-10 grid grid-cols-3 gap-8">
 
-        {/* Wishlist - left */}
+        {/* Wishlist */}
         <div className="col-span-2">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold text-[#2C1F14]"
-                style={{ fontFamily: 'Georgia, serif' }}>
-              Wishlist
-            </h2>
-          </div>
+          <h2 className="text-xl font-bold text-[#2C1F14] mb-6"
+              style={{ fontFamily: 'Georgia, serif' }}>
+            Wishlist
+          </h2>
 
-          {/* Add gift form */}
           <form onSubmit={handleAddGift} className="bg-white rounded-xl p-4 border border-[#DDD3C6] mb-6 flex gap-3">
             <input
               type="text"
@@ -147,12 +152,11 @@ function CircleDetail() {
             </button>
           </form>
 
-          {/* Gift items */}
           {gifts.length === 0 ? (
             <p className="text-[#9A8878] text-sm">No gifts yet — add the first one above!</p>
           ) : (
             gifts.map((gift) => (
-              <div key={gift.id} className="bg-white rounded-xl p-4 border border-[#DDD3C6] mb-3 flex items-center gap-4 hover:shadow-sm transition">
+              <div key={gift.id} className="bg-white rounded-xl p-4 border border-[#DDD3C6] mb-3 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-[#EDE5D8] flex items-center justify-center text-2xl flex-shrink-0">
                   🎁
                 </div>
@@ -173,9 +177,8 @@ function CircleDetail() {
           )}
         </div>
 
-        {/* Side panel - right */}
+        {/* Side panel */}
         <div>
-          {/* Invite box */}
           <div className="bg-white rounded-xl p-5 border border-[#DDD3C6] mb-6">
             <p className="text-xs font-bold tracking-widest text-[#9A8878] uppercase mb-3">
               Invite friends
@@ -191,7 +194,6 @@ function CircleDetail() {
             </button>
           </div>
 
-          {/* Circle info */}
           <div className="bg-white rounded-xl p-5 border border-[#DDD3C6]">
             <p className="text-xs font-bold tracking-widest text-[#9A8878] uppercase mb-3">
               Circle Info

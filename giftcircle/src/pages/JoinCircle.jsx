@@ -16,10 +16,8 @@ function JoinCircle() {
       navigate(`/login?redirect=/join/${token}`)
       return
     }
-    joinCircle()
-  }, [user])
 
-  const joinCircle = async () => {
+    const joinCircle = async () => {
     // Find circle by invite token
     const { data: circleData, error } = await supabase
       .from('circles')
@@ -59,7 +57,10 @@ function JoinCircle() {
       setStatus('success')
       setTimeout(() => navigate(`/circle/${circleData.id}`), 2000)
     }
-  }
+    }
+
+    joinCircle()
+  }, [user, token, navigate])
 
   return (
     <div className="min-h-screen bg-[#F7F2EB]">
