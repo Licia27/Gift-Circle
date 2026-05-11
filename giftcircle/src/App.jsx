@@ -5,7 +5,7 @@ import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import CreateCircle from './pages/CreateCircle'
-import CircleDetail from './pages/CircleDetail'
+import CircleDetail from './pages/CircleDetails'
 import JoinCircle from './pages/JoinCircle'
 import ProtectedRoute from './components/layout/ProtectedRoute'
 

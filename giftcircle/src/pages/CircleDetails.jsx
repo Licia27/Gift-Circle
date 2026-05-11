@@ -14,19 +14,36 @@ function CircleDetail() {
   const [adding, setAdding] = useState(false)
   const [copied, setCopied] = useState(false)
 
-  const fetchCircle = async () => {
-    const { data, error } = await supabase
-      .from('circles')
-      .select('*')
-      .eq('id', id)
-      .single()
-    if (error) {
-      console.error('Error fetching circle:', error)
-      setLoading(false)
-      return
+  useEffect(() => {
+    const fetchCircle = async () => {
+      const { data, error } = await supabase
+        .from('circles')
+        .select('*')
+        .eq('id', id)
+        .single()
+      if (error) {
+        console.error('Error fetching circle:', error)
+        setLoading(false)
+        return
+      }
+      setCircle(data)
     }
-    setCircle(data)
-  }
+
+    const fetchGifts = async () => {
+      const { data } = await supabase
+        .from('gifts')
+        .select('*, contributions(*)')
+        .eq('circle_id', id)
+      setGifts(data || [])
+    }
+
+    const loadData = async () => {
+      await fetchCircle()
+      await fetchGifts()
+      setLoading(false)
+    }
+    loadData()
+  }, [id])
 
   const fetchGifts = async () => {
     const { data } = await supabase
@@ -35,15 +52,6 @@ function CircleDetail() {
       .eq('circle_id', id)
     setGifts(data || [])
   }
-
-  useEffect(() => {
-    const loadData = async () => {
-      await fetchCircle()
-      await fetchGifts()
-      setLoading(false)
-    }
-    loadData()
-  }, [id, user])
 
   const handleAddGift = async (e) => {
     e.preventDefault()
