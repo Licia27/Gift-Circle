@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AuthContext } from './context/AuthContext'
+import { AuthProvider } from './context/AuthContext'
 import Landing from './pages/Landing'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
@@ -11,7 +11,7 @@ import ProtectedRoute from './components/layout/ProtectedRoute'
 
 function App() {
   return (
-    <AuthContext>
+    <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -29,7 +29,7 @@ function App() {
           } />
         </Routes>
       </BrowserRouter>
-    </AuthContext>
+    </AuthProvider>
   )
 }
 
