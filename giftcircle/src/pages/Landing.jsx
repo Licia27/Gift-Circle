@@ -3,14 +3,14 @@ import Navbar from '../components/layout/Navbar'
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-[#F7F2EB]">
+    <div className="min-h-screen bg-[#F7F2EB] page">
       <Navbar />
 
       {/* Hero Section */}
       <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         
         {/* Left */}
-        <div>
+        <div className="fade-in">
           <p className="text-xs tracking-widest text-[#C9A97A] uppercase mb-4">
             Gifting, together
           </p>
@@ -40,7 +40,7 @@ function Landing() {
         </div>
 
         {/* Right — Preview Cards */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 slide-in">
           {[
             { emoji: '🎂', title: "Nothando's 30th Birthday", sub: '6 people · R1 800 goal', pct: 72 },
             { emoji: '🌿', title: "Kamogelo's Baby Shower", sub: '11 people · R3 200 goal', pct: 45 },

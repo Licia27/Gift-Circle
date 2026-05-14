@@ -39,7 +39,7 @@ function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F2EB]">
+    <div className="min-h-screen bg-[#F7F2EB] page">
       <Navbar />
       <div className="max-w-6xl mx-auto px-8 py-12">
 
@@ -59,7 +59,7 @@ function Dashboard() {
           </div>
           <Link
             to="/circle/new"
-            className="bg-[#2C1F14] text-[#F7F2EB] px-4 py-2 rounded-full font-semibold text-sm hover:bg-[#7D4E2D] transition"
+            className="bg-[#2C1F14] text-[#F7F2EB] px-4 py-2 rounded-full font-semibold text-sm hover:bg-[#7D4E2D] transition whitespace-nowrap"
           >
             + New circle
           </Link>
@@ -69,7 +69,7 @@ function Dashboard() {
         {loading ? (
           <p className="text-[#9A8878]">Loading your circles...</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
             {circles.map((circle) => (
               <Link to={`/circle/${circle.id}`} key={circle.id}>
                 <div className="bg-white rounded-2xl overflow-hidden border border-[#DDD3C6] shadow-sm hover:shadow-md hover:-translate-y-1 transition cursor-pointer">
