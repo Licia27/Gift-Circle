@@ -69,7 +69,7 @@ function Dashboard() {
         {loading ? (
           <p className="text-[#9A8878]">Loading your circles...</p>
         ) : (
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {circles.map((circle) => (
               <Link to={`/circle/${circle.id}`} key={circle.id}>
                 <div className="bg-white rounded-2xl overflow-hidden border border-[#DDD3C6] shadow-sm hover:shadow-md hover:-translate-y-1 transition cursor-pointer">

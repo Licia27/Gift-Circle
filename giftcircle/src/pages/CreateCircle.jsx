@@ -42,7 +42,7 @@ function CreateCircle() {
   return (
     <div className="min-h-screen bg-[#F7F2EB]">
       <Navbar />
-      <div className="max-w-2xl mx-auto px-8 py-16">
+      <div className="max-w-2xl mx-auto px-6 py-10">
         <h1 className="text-4xl text-[#2C1F14] mb-2"
             style={{ fontFamily: 'Georgia, serif' }}>
           Start a new circle
@@ -96,7 +96,7 @@ function CreateCircle() {
               name="recipient"
               value={form.recipient}
               onChange={handleChange}
-              placeholder="e.g. Thandi Nkosi"
+              placeholder="e.g. Thandiswa Nkosi"
               className="w-full border border-[#DDD3C6] rounded-lg px-4 py-3 text-sm bg-[#F7F2EB] focus:outline-none focus:border-[#7D4E2D]"
               required
             />

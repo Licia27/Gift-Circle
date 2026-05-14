@@ -33,7 +33,7 @@ function Signup() {
   return (
     <div className="min-h-screen bg-[#F7F2EB]">
       <Navbar />
-      <div className="max-w-5xl mx-auto px-8 py-16 grid grid-cols-2 gap-12">
+      <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Left */}
         <div className="flex flex-col justify-center">

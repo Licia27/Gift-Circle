@@ -7,14 +7,14 @@ function Landing() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="max-w-6xl mx-auto px-8 py-20 grid grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         
         {/* Left */}
         <div>
           <p className="text-xs tracking-widest text-[#C9A97A] uppercase mb-4">
             Gifting, together
           </p>
-          <h1 className="text-6xl font-light text-[#2C1F14] leading-tight mb-6"
+          <h1 className="text-4xl md:text-6xl font-light text-[#2C1F14] leading-tight mb-6"
               style={{ fontFamily: 'Georgia, serif' }}>
             Every gift <br />
             <em className="text-[#7D4E2D]">more</em> meaningful.

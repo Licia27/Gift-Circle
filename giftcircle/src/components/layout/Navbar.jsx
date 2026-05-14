@@ -10,7 +10,7 @@ function Navbar() {
   }
 
   return (
-    <nav className="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
+    <nav className="bg-white border-b border-gray-200 md:px-8 py-4 flex justify-between items-center">
       <Link to="/" className="text-2xl font-bold text-[#2C1F14]">
         GiftCircle
       </Link>
