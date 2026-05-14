@@ -59,7 +59,7 @@ function Dashboard() {
           </div>
           <Link
             to="/circle/new"
-            className="bg-[#2C1F14] text-[#F7F2EB] px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#7D4E2D] transition"
+            className="bg-[#2C1F14] text-[#F7F2EB] px-4 py-2 rounded-full font-semibold text-sm hover:bg-[#7D4E2D] transition"
           >
             + New circle
           </Link>
