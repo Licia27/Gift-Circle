@@ -48,7 +48,7 @@ function Dashboard() {
           <div>
             <h1 className="text-4xl text-[#2C1F14]"
                 style={{ fontFamily: 'Georgia, serif' }}>
-              Good morning,{' '}
+              {new Date().getHours() < 12 ? 'Good morning' : new Date().getHours() < 17 ? 'Good afternoon' : 'Good evening'},{' '}
               <em className="text-[#7D4E2D]">
                 {user?.user_metadata?.full_name?.split(' ')[0] || 'friend'}.
               </em>
